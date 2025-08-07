@@ -1,0 +1,121 @@
+
+Proyecto 2 V.1
+
+Gestor de ventas
+
+Partes del programa:
+
+	- Ingreso de datos de clientes y productos
+	- Visualización de la información almacenada
+	- Edición de información almacenada
+	- Eliminación de información almacenada
+
+Partes del programa y su com`psición:
+
+   - Mostrar fecha actual
+
+   - Ingreso y almacenamiento de datos:
+	- Registro de Clientes
+		Fecha
+		Nombre
+		Apellido
+		Cel
+		e-mail
+
+   	- Registro de Ventas
+	   - Clientes
+		Fecha
+		Nombre
+		Apellido
+		Cel
+		e-mail
+
+	   - Productos
+		Marca
+		Item
+		Modelo
+		Número de serie
+		Precio sin impuestos
+
+	   - Condiciones de la venta
+		Forma de pago (opción de elegir con un puntito una de las opciones): Efectivo $, Efectivo USD, Tarjeta crédito (elegir con un puntito VISA o AMEX) que
+										     despliegue submenu con listado de cuotas para elegir, Transferencia $.
+		IVA si o no (opción de elegir con un puntito una de las opciones)
+		IVA si Factura A o B (opción de elegir con un puntito una de las opciones)
+ 		Factura Nro.
+		Comentario
+
+   - Visualización de datos:
+	- Clientes
+	   - Buscar por fecha
+	   - Buscar por Nombre
+	   - Buscar por Apellido
+	   - Buscar por Celular
+	   - Buscar por e-mail
+
+	- Ventas
+	   - Buscar por fecha
+	   - Buscar por marca
+	   - Buscar por modelo
+	   - Buscar por item
+	   - Buscar por número de serie
+	   - Buscar total ventas por mes
+	   - Buscar total ventas por año
+
+	- Comisiones
+	   - Buscar comisiones en $
+	   - Buscar comisiones en USD
+	   - Buscar total de comisiones por mes
+	   - Buscar total de comisiones por año
+
+   - Edición de datos:
+	- Buscar por:
+	   Clientes:
+		- Buscar por fecha y modificar
+		- Buscar por Nombre y modificar
+		- Buscar por Apellido y modificar
+		- Buscar por Celular y modificar
+		- Buscar por e-mail y modificar
+	
+	   Ventas:
+		- Buscar por fecha y modificar
+		- Buscar por marca y modificar
+		- Buscar por modelo y modificar
+		- Buscar por item y modificar
+		- Buscar por número de serie y modificar
+		- Buscar total ventas por mes y modificar
+		- Buscar total ventas por año y modificar
+   
+   - Eliminación:
+	- Clientes
+		- Buscar por cliente y eliminar
+		- Eliminar todos los clientes (pedir confirmación)
+
+	- Ventas / Comisiones
+		- Buscar por ventas y eliminar (se eliminan las comisiones de esa venta)
+		- Eliminar todas las ventas (pedir confirmación)
+	
+		
+
+	
+	   
+
+				
+				
+			
+
+
+
+
+
+
+   - Visualización de la información almacenada
+
+
+   - Edición de información almacenada
+
+
+   - Eliminación de información almacenada
+
+
+
