@@ -33,5 +33,18 @@ class Gestor_CSV: # clase
             reader = csv.DictReader(f) # Lee como diccionarios donde clave=header, valor=datos
             return list(reader) # Convierte al objeto reader (iterador) en una lista completa
         
-    
+    def eliminar(self, index): # método de clase donde index es un entero y representa índeice de posición
+        datos = self.cargar() # datos recibe lista de diccionarios traídos por el método cargar
+        if 0 <= index <= len(datos): # verifica que index esté dentro de los límites de la lista
+            datos.pop(index) # elimina el elemento de la posición index y corre una fila hacia arriba
+            with open(self.archivo, "w", newline="") as f: # abre, escribe y cierra el archivo
+                writer = csv.DictWriter(f, fieldnames=self.headers) # escribe filas como diccionarios según orden y columnas
+                writer.writeheader() # escribe 1er fila con los encabezados
+                writer.writerows(datos) # escribe filas como diccionarios, excepto la eliminada
+                
+    def eliminar_todo(self): # método de clase
+        with open(self.archivo, "w", newline="") as f: # abre, escribe y cierra el csv y borra todo su contenido
+            writer = csv.writer(f) # crea el objeto writer csv, escribe filas csv en el archivo f
+            writer. writerow(self.headers) # self.headers es una lista con los encabezados y escribiéndola como única fila
+        
                 
