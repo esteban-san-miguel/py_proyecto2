@@ -15,13 +15,16 @@ class Gestor_CSV: # clase
     def inicializar_archivo(self): # método de clase (acciones que realizará el objeto)
         if not os.path.exists(self.archivo): # verifica si existe el archivo sino lo crea
             with open(self.archivo, "w", newline="") as f: # abre el archivo en modo escritura
-                writer = csv.writer(f) # crea el archivo y escribe las columnas
+                writer = csv.writer(f) # crea el objeto writer
                 writer.writerow(self.headers) # escribe los encabezados en la fila 1 (0)
                 
     def guardar(self, fila): # método de clase c/2 args (fila es un diccionario contenedor del archivo csv)
+        archivo_vacio = not os.path.exists(self.archivo) or os.path.getsize(self.archivo) == 0
         with open(self.archivo, "a", newline="") as f: # abre, agrega y cierra el archivo csv
             writer = csv.DictWriter(f, fieldnames=self.headers) # escribe datos en el archivo desde diccionarios
-            writer.writerow(self.headers) # escribe una fila nueva según el orden de fieldnames
+            if archivo_vacio:
+                writer.writeheader() # escribe los encabezados si el archivo está vacío
+            writer.writerow(fila) # escribe la fila pasada como un diccionario
             
     def cargar(self): # método de clase
         if not os.path.exists(self.archivo): # verifica si existe el archivo sino lo crea
