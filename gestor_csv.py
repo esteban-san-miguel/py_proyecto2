@@ -13,7 +13,7 @@ class Gestor_CSV: # clase
         self.inicializar_archivo()
 
     def inicializar_archivo(self): # método de clase (acciones que realizará el objeto)
-        if not os.path.exists(self.archivo): # verifica si existe el archivo
+        if not os.path.exists(self.archivo): # verifica si existe el archivo sino lo crea
             with open(self.archivo, "w", newline="") as f: # abre el archivo en modo escritura
                 writer = csv.writer(f) # crea el archivo y escribe las columnas
                 writer.writerow(self.headers) # escribe los encabezados en la fila 1 (0)
@@ -23,4 +23,12 @@ class Gestor_CSV: # clase
             writer = csv.DictWriter(f, fieldnames=self.headers) # escribe datos en el archivo desde diccionarios
             writer.writerow(self.headers) # escribe una fila nueva según el orden de fieldnames
             
+    def cargar(self): # método de clase
+        if not os.path.exists(self.archivo): # verifica si existe el archivo sino lo crea
+            return [] # si csv no existe, retorna una lista vacía para evitar errores
+        with open(self.archivo, "r", newline="") as f: # abre el archivo en modo lectura
+            reader = csv.DictReader(f) # Lee como diccionarios donde clave=header, valor=datos
+            return list(reader) # Convierte al objeto reader (iterador) en una lista completa
+        
     
+                
