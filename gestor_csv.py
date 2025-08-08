@@ -16,12 +16,12 @@ class Gestor_CSV: # clase
         if not os.path.exists(self.archivo): # verifica si existe el archivo sino lo crea
             with open(self.archivo, "w", newline="") as f: # abre el archivo en modo escritura
                 writer = csv.writer(f) # instancía la clase, crea el objeto writer
-                writer.writerow(self.headers) # llamada al método que escribe los encabezados en la fila 1 (0)
+                writer.writerow(self.headers) # escribe los encabezados en la fila 1 (0)
                 
     def guardar(self, fila): # método de clase c/2 args (fila es un diccionario contenedor del archivo csv)
         archivo_vacio = not os.path.exists(self.archivo) or os.path.getsize(self.archivo) == 0
         with open(self.archivo, "a", newline="") as f: # abre, agrega y cierra el archivo csv
-            writer = csv.DictWriter(f, fieldnames=self.headers) # crea el objeto writer y escribe datos en el archivo desde diccionarios
+            writer = csv.DictWriter(f, fieldnames=self.headers) # escribe datos en el archivo desde diccionarios
             if archivo_vacio:
                 writer.writeheader() # llamada al método que escribe los encabezados si el archivo está vacío
             writer.writerow(fila) # llamada al método que escribe la fila pasada como un diccionario
@@ -30,7 +30,7 @@ class Gestor_CSV: # clase
         if not os.path.exists(self.archivo): # verifica si existe el archivo sino lo crea
             return [] # si csv no existe, retorna una lista vacía para evitar errores
         with open(self.archivo, "r", newline="") as f: # abre el archivo en modo lectura
-            reader = csv.DictReader(f) # crea el objeto reader y lee como diccionarios donde clave=header, valor=datos
+            reader = csv.DictReader(f) # Lee como diccionarios donde clave=header, valor=datos
             return list(reader) # Convierte al objeto reader (iterador) en una lista completa
         
     def eliminar(self, index): # método de clase donde index es un entero y representa índeice de posición
@@ -39,8 +39,8 @@ class Gestor_CSV: # clase
             datos.pop(index) # elimina el elemento de la posición index y corre una fila hacia arriba
             with open(self.archivo, "w", newline="") as f: # abre, escribe y cierra el archivo
                 writer = csv.DictWriter(f, fieldnames=self.headers) # crea el objeto reader y escribe filas como diccionarios según orden y columnas
-                writer.writeheader() # llamada al método que escribe 1er fila con los encabezados
-                writer.writerows(datos) # llamada al método que escribe filas como diccionarios, excepto la eliminada
+                writer.writeheader() # escribe 1er fila con los encabezados
+                writer.writerows(datos) # escribe filas como diccionarios, excepto la eliminada
                 
     def eliminar_todo(self): # método de clase
         with open(self.archivo, "w", newline="") as f: # abre, escribe y cierra el csv y borra todo su contenido
